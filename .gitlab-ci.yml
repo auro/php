@@ -34,6 +34,7 @@ Deploy:
   environment:
     name: Development
     url: https://$project.$domain
+    on_stop: Undeploy
   before_script:
     - apk add --no-cache py-pip
     - pip install docker-compose
