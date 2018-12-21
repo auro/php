@@ -5,8 +5,6 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./lamp/
-      args:
-        buildno: 1
     ports:
       - "80:80"
     links:
