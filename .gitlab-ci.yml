@@ -6,7 +6,7 @@ variables:
   project: lamp
 
 Prepare Env:
-  stage: setup
+  stage: prepare
   tags:
     - docker
   before_script:
