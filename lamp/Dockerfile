@@ -9,7 +9,7 @@ RUN apt-get update \
           libfreetype6-dev \
           libjpeg-dev \
           libmagickwand-dev \
-          libmemcached-dev \
+#          libmemcached-dev \
           libpng-dev \
           libpq-dev \
           libssl-dev \
@@ -31,8 +31,8 @@ RUN docker-php-ext-install gd \
 RUN pecl install imagick \
     && docker-php-ext-enable imagick
 
-RUN pecl install memcached \
-    && docker-php-ext-enable memcached
+#RUN pecl install memcached \
+#    && docker-php-ext-enable memcached
 
 RUN docker-php-ext-install pdo_pgsql
 
