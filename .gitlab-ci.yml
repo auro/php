@@ -1,7 +1,22 @@
-before_script:
-  - whoami
-  - uname -a
-  - ifconfig
+stages:
+  - prepare
 
-script:
+variables:
+  domain: merco.net
+  project: lamp
+
+Prepare Env:
+  stage: setup
+  tags:
+    - docker
+  before_script:
+    - whoami
+    - uname -a
+    - ifconfig
+    - docker --version
+    - docker-compose --version
+    - docker-machine --version
+  script:
     - ps aux
+  only:
+    - master
