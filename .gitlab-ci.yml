@@ -16,7 +16,7 @@ Build:
   tags:
     - docker
   before_script:
-    - echo Build & Release $project.$domain
+    - echo Build and Release $project.$domain
     - apk add --no-cache py-pip
     - pip install docker-compose
     - docker --version
