@@ -10,9 +10,9 @@ Prepare Env:
   tags:
     - docker
   before_script:
+    - uptime
     - whoami
     - uname -a
-    - ifconfig
     - docker --version
     - docker-compose --version
     - docker-machine --version
