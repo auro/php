@@ -19,12 +19,10 @@ Build:
     - echo Build and Release $project.$domain
     - docker --version
     - apk add --no-cache py-pip
-    - pip install docker-compose
-    - docker-compose --version
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker-compose build --compress --pull --parallel
   script:
-    - docker-compose push
+    - docker build -t $CI_REGISTRY_IMAGE:CI_COMMIT_REF_SLUG -t $CI_REGISTRY_IMAGE:stable .
+    - docker push $CI_REGISTRY_IMAGE
   only:
     - master
 
