@@ -7,7 +7,7 @@ services:
     image: registry.gitlab.com/merco.net/docker-stacks/php:stable
     build: ./
     ports:
-      - "80:80"
+      - "2001:80"
     links:
       - mysql
     volumes:
