@@ -18,7 +18,6 @@ Build:
   before_script:
     - echo Build and Release $project.$domain
     - docker --version
-    - apk add --no-cache py-pip
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
     - docker build -t $CI_REGISTRY_IMAGE:CI_COMMIT_REF_SLUG -t $CI_REGISTRY_IMAGE:stable .
