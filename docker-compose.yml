@@ -5,7 +5,7 @@ services:
   php:
 
     image: registry.gitlab.com/merco.net/docker-stacks/php:stable
-    build: ./
+#    build: ./
     ports:
       - "2001:80"
     links:

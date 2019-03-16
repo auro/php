@@ -9,7 +9,7 @@ stages:
 
 variables:
   domain: merco.net
-  project: lamp
+  project: php
 
 Build:
   stage: build
