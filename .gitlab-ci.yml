@@ -38,12 +38,10 @@ Deploy:
   before_script:
     - echo Deploy $project.$domain
     - docker --version
-    - apk add --no-cache py-pip
-    - pip install docker-compose
     - docker-compose --version
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - docker-compose up -d
+    - docker-compose up -d --remove-orphans
   only:
     - master
   when: manual
