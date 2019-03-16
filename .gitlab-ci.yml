@@ -15,6 +15,7 @@ Build:
   stage: build
   tags:
     - docker
+    - gce
   before_script:
     - echo Build and Release $project.$domain
     - docker --version
@@ -28,7 +29,8 @@ Build:
 Deploy:
   stage: deploy
   tags:
-    - docker
+    - docker-compose
+    - monitor.merco.net
   environment:
     name: Development
     url: https://$project.$domain
