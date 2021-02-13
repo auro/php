@@ -45,7 +45,6 @@ RUN apt-get -qq update -y && \
             memcached \
             mysqli \
             opcache \
-            pgsql \
             redis \
             yaml && \
     apt-get -qq remove -y \
