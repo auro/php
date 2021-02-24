@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:7.4
 RUN apt-get -qq update -y && \
         apt-get -qq upgrade -y && \
         apt-get -qq install --no-install-recommends -y \
@@ -16,8 +16,6 @@ RUN apt-get -qq update -y && \
         libxml2-dev \
         libyaml-dev \
         libzip-dev \
-        nginx \
-        supervisor \
         unzip && \
         pecl install -o -f mongodb && \
         pecl install -o -f redis && \
@@ -65,10 +63,6 @@ RUN apt-get -qq update -y && \
 COPY --from=composer:1 /usr/bin/composer /usr/bin/composer
 COPY php.ini /usr/local/etc/php/conf.d/php.override.ini
 COPY www.conf /usr/local/etc/php-fpm.d/www.conf
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY supervisor.conf /etc/supervisor/conf.d/supervisor.conf
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh /usr/bin/composer
-WORKDIR /var/www/html
+RUN chmod +x /usr/bin/composer
+WORKDIR /var/www
 EXPOSE 80
-ENTRYPOINT ["/entrypoint.sh"]
