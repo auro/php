@@ -1,4 +1,4 @@
-FROM php:7.4
+FROM php:7
 RUN apt-get -qq update -y && \
         apt-get -qq upgrade -y && \
         apt-get -qq install --no-install-recommends -y \
