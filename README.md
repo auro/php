@@ -1,37 +1,12 @@
-# PHP 7.4 Docker Stack
+# PHP Docker Stack
 
-PHP 7.4 Docker Stack based on official PHP Dockerhub images - for Development and Production workloads.
+Stack fully based on official PHP docker images - well suited for development and production workloads.
 
 ## Usage
 
-Just create the following Dockerfile onto your project root:
-
-```yaml
-FROM aur0/php:7
-COPY src/ /var/www/html/
-```
-
-```yaml
-FROM aur0/php:7-cli
-COPY src/ /var/www/html/
-```
-
-```yaml
-FROM aur0/php:7-fpm
-COPY src/ /var/www/html/
-```
+Just copy your source code to www non-public root.
 
 ```yaml
 FROM aur0/php:8
-COPY src/ /var/www/html/
-```
-
-```yaml
-FROM aur0/php:8-cli
-COPY src/ /var/www/html/
-```
-
-```yaml
-FROM aur0/php:8-fpm
-COPY src/ /var/www/html/
+COPY src/ /var/www/
 ```

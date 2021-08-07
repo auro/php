@@ -1,82 +1,68 @@
 version: "3.8"
+
 services:
-  #   php7:
-  #     build:
-  #       context: .
-  #       dockerfile: 7/Dockerfile
-  #     volumes:
-  #       - ./src:/var/www/html
-  #     command: php -v
-
-  #   php7-cli:
-  #     build:
-  #       context: .
-  #       dockerfile: 7/Dockerfile-cli
-  #     volumes:
-  #       - ./src:/var/www/html
-  #     command: php -v
-
-  #   php7-fpm:
-  #     build:
-  #       context: .
-  #       dockerfile: 7/Dockerfile-fpm
-  #     volumes:
-  #       - ./src:/var/www/html
-
-  #   php7-nginx:
-  #     build:
-  #       context: .
-  #       dockerfile: 7/Dockerfile-nginx
-  #     volumes:
-  #       - ./src:/var/www/html
-  #     ports:
-  #       - "7001:80"
-
-  #   php7-apache:
-  #     build:
-  #       context: .
-  #       dockerfile: 7/Dockerfile-apache
-  #     volumes:
-  #       - ./src:/var/www/html
-  #     ports:
-  #       - "7002:80"
-
-  php8:
+  php7-cli:
     build:
       context: .
-      dockerfile: 8/Dockerfile
+      dockerfile: 7/Dockerfile-cli
     volumes:
       - ./src:/var/www/html
     command: php -v
-#   php8-cli:
-#     build:
-#       context: .
-#       dockerfile: 8/Dockerfile-cli
-#     volumes:
-#       - ./src:/var/www/html
-#     command: php -v
 
-#   php8-fpm:
-#     build:
-#       context: .
-#       dockerfile: 8/Dockerfile-fpm
-#     volumes:
-#       - ./src:/var/www/html
+  php7-fpm:
+    build:
+      context: .
+      dockerfile: 7/Dockerfile-fpm
+    volumes:
+      - ./src:/var/www/html
 
-#   php8-nginx:
-#     build:
-#       context: .
-#       dockerfile: 8/Dockerfile-nginx
-#     volumes:
-#       - ./src:/var/www/html
-#     ports:
-#       - "8001:80"
+  php7-nginx:
+    build:
+      context: .
+      dockerfile: 7/Dockerfile-nginx
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "7001:80"
 
-#   php8-apache:
-#     build:
-#       context: .
-#       dockerfile: 8/Dockerfile-apache
-#     volumes:
-#       - ./src:/var/www/html
-#     ports:
-#       - "8002:80"
+  php7-apache:
+    build:
+      context: .
+      dockerfile: 7/Dockerfile-apache
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "7002:80"
+
+  php8-cli:
+    build:
+      context: .
+      dockerfile: 8/Dockerfile-cli
+    volumes:
+      - ./src:/var/www/html
+    command: php -v
+
+  php8-fpm:
+    build:
+      context: .
+      dockerfile: 8/Dockerfile-fpm
+    volumes:
+      - ./src:/var/www/html
+
+  php8-nginx:
+    build:
+      context: .
+      dockerfile: 8/Dockerfile-nginx
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "8001:80"
+
+  php8-apache:
+    build:
+      context: .
+      dockerfile: 8/Dockerfile-apache
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "8002:80"

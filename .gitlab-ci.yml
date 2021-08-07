@@ -6,89 +6,89 @@ services:
 stages:
   - build
 
-7 Apache:
-  stage: build
-  tags:
-    - docker
-    - gce
-  script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build -t $CI_REGISTRY_IMAGE:7-apache -f 7/Dockerfile-apache .
-    - docker push -a -q $CI_REGISTRY_IMAGE
-  only:
-    - master
+# 7 Apache:
+#   stage: build
+#   tags:
+#     - docker
+#     - gce
+#   script:
+#     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+#     - docker build -t $CI_REGISTRY_IMAGE:7-apache -f 7/Dockerfile-apache .
+#     - docker push -a -q $CI_REGISTRY_IMAGE
+#   only:
+#     - master
 
-7 Cli:
-  stage: build
-  tags:
-    - docker
-    - gce
-  script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build -t $CI_REGISTRY_IMAGE:7-cli -f 7/Dockerfile-cli .
-    - docker push -a -q $CI_REGISTRY_IMAGE
-  only:
-    - master
+# 7 Cli:
+#   stage: build
+#   tags:
+#     - docker
+#     - gce
+#   script:
+#     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+#     - docker build -t $CI_REGISTRY_IMAGE:7-cli -f 7/Dockerfile-cli .
+#     - docker push -a -q $CI_REGISTRY_IMAGE
+#   only:
+#     - master
 
-7 Fpm:
-  stage: build
-  tags:
-    - docker
-    - gce
-  script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build -t $CI_REGISTRY_IMAGE:7-fpm -f 7/Dockerfile-fpm .
-    - docker push -a -q $CI_REGISTRY_IMAGE
-  only:
-    - master
+# 7 Fpm:
+#   stage: build
+#   tags:
+#     - docker
+#     - gce
+#   script:
+#     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+#     - docker build -t $CI_REGISTRY_IMAGE:7-fpm -f 7/Dockerfile-fpm .
+#     - docker push -a -q $CI_REGISTRY_IMAGE
+#   only:
+#     - master
 
-7 Nginx:
-  stage: build
-  tags:
-    - docker
-    - gce
-  script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build -t $CI_REGISTRY_IMAGE:7-nginx -t $CI_REGISTRY_IMAGE:7 -f 7/Dockerfile-nginx .
-    - docker push -a -q $CI_REGISTRY_IMAGE
-  only:
-    - master
+# 7 Nginx:
+#   stage: build
+#   tags:
+#     - docker
+#     - gce
+#   script:
+#     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+#     - docker build -t $CI_REGISTRY_IMAGE:7-nginx -t $CI_REGISTRY_IMAGE:7 -f 7/Dockerfile-nginx .
+#     - docker push -a -q $CI_REGISTRY_IMAGE
+#   only:
+#     - master
 
-8 Apache:
-  stage: build
-  tags:
-    - docker
-    - gce
-  script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build -t $CI_REGISTRY_IMAGE:8-apache -f 8/Dockerfile-apache .
-    - docker push -a -q $CI_REGISTRY_IMAGE
-  only:
-    - master
+# 8 Apache:
+#   stage: build
+#   tags:
+#     - docker
+#     - gce
+#   script:
+#     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+#     - docker build -t $CI_REGISTRY_IMAGE:8-apache -f 8/Dockerfile-apache .
+#     - docker push -a -q $CI_REGISTRY_IMAGE
+#   only:
+#     - master
 
-8 Cli:
-  stage: build
-  tags:
-    - docker
-    - gce
-  script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build -t $CI_REGISTRY_IMAGE:8-cli -f 8/Dockerfile-cli .
-    - docker push -a -q $CI_REGISTRY_IMAGE
-  only:
-    - master
+# 8 Cli:
+#   stage: build
+#   tags:
+#     - docker
+#     - gce
+#   script:
+#     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+#     - docker build -t $CI_REGISTRY_IMAGE:8-cli -f 8/Dockerfile-cli .
+#     - docker push -a -q $CI_REGISTRY_IMAGE
+#   only:
+#     - master
 
-8 Fpm:
-  stage: build
-  tags:
-    - docker
-    - gce
-  script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build -t $CI_REGISTRY_IMAGE:8-fpm -f 8/Dockerfile-fpm .
-    - docker push -a -q $CI_REGISTRY_IMAGE
-  only:
-    - master
+# 8 Fpm:
+#   stage: build
+#   tags:
+#     - docker
+#     - gce
+#   script:
+#     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+#     - docker build -t $CI_REGISTRY_IMAGE:8-fpm -f 8/Dockerfile-fpm .
+#     - docker push -a -q $CI_REGISTRY_IMAGE
+#   only:
+#     - master
 
 8 Nginx:
   stage: build

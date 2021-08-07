@@ -36,7 +36,6 @@ RUN apt-get -qq update -y && \
         soap \
         tokenizer \
         xml \
-        xmlrpc \
         zip && \
         docker-php-ext-enable \
         memcached \
