@@ -1,0 +1,69 @@
+FROM php:8-fpm
+RUN apt-get -qq update -y && \
+        apt-get -qq upgrade -y && \
+        apt-get -qq install --no-install-recommends -y \
+        autoconf \
+        bzip2 \
+        build-essential \
+        git \
+        libfreetype6-dev \
+        libicu-dev \
+        libjpeg62-turbo-dev \
+        libmemcached-dev \
+        libonig-dev \
+        libpng-dev \
+        libpq-dev \
+        libxml2-dev \
+        libyaml-dev \
+        libzip-dev \
+        unzip && \
+        pecl install -o -f mongodb && \
+        pecl install -o -f redis && \
+        pecl install -o -f memcached && \
+        pecl install -o -f yaml && \
+        docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ && \
+        docker-php-ext-configure intl && \
+        docker-php-ext-install \
+        bcmath \
+        ctype \
+        gd \
+        intl \
+        mbstring \
+        mysqli \
+        opcache \
+        pdo \
+        pdo_pgsql \
+        soap \
+        tokenizer \
+        xml \
+        xmlrpc \
+        zip && \
+        docker-php-ext-enable \
+        memcached \
+        mysqli \
+        opcache \
+        redis \
+        yaml && \
+        apt-get -qq remove -y \
+        autoconf \
+        build-essential \
+        libfreetype6-dev \
+        libicu-dev \
+        libjpeg62-turbo-dev \
+        libmemcached-dev \
+        libonig-dev \
+        libpng-dev \
+        libpq-dev \
+        libxml2-dev \
+        libyaml-dev \
+        libzip-dev && \
+        apt-get -qq clean && \
+        rm -rf /tmp/pear /var/lib/apt/lists/*
+COPY --from=composer:1 /usr/bin/composer /usr/bin/composer
+COPY php.ini /usr/local/etc/php/conf.d/php.override.ini
+COPY www.conf /usr/local/etc/php-fpm.d/www.conf
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh /usr/bin/composer
+WORKDIR /var/www
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["php-fpm", "-R", "-F"]
